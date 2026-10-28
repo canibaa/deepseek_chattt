@@ -13,7 +13,7 @@ export default {
     if (url.pathname === "/api/health" && request.method === "GET") return json({ok:true,service:"DeepSeek Chat API"});
     if (url.pathname !== "/api/chat") return json({error:"Маршрут не найден."},404);
     if (request.method !== "POST") return json({error:"Используй POST."},405);
-    if (!env.DEEPSEEK_API_KEY) return json({error:"	878d11bd-2212-4d5c-b96a-490f37df9fc1"},500);
+    if (!env.DEEPSEEK_API_KEY) return json({error:"sk-9a8cbd01d54a41dd98fc0026b7a60dff"},500);
     let body;
     try { body = await request.json(); } catch { return json({error:"Некорректный JSON."},400); }
     const allowed = new Set(["deepseek-chat","deepseek-reasoner"]);
